@@ -39,7 +39,7 @@ const setTimestamp = (state) => {
 }
 
 const overrideAttachToTangle = iota => {
-  iota.api.attachToTangle = (
+  var localAttachToTangle = (
     trunkTransaction,
     branchTransaction,
     minWeight,
@@ -150,6 +150,8 @@ const overrideAttachToTangle = iota => {
     }
   })
   }
+
+  iota.api.attachToTangle = localAttachToTangle;
 }
 
 window.curl = module.exports = {
